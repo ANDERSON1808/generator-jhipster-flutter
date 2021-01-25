@@ -17,10 +17,10 @@ module.exports = class extends BaseGenerator {
     get initializing() {
         return {
             checkTools() {
-                this.log(chalk.blue.bold('Checking the presence of the Flutter SDK...'));
+                this.log(chalk.blue.bold('Verificando la presencia del Flutter SDK...'));
                 const flutterOK = this.spawnCommandSync('flutter', ['doctor']);
                 if (flutterOK.status === 1) {
-                    throw new Error(chalk.red.bold('Flutter CLI Not found, please install it before running this generator (https://flutter.dev/docs/get-started/install)'));
+                    throw new Error(chalk.red.bold('Flutter CLI No encontrado, instálelo antes de ejecutar este generador (https://flutter.dev/docs/get-started/install)'));
                 }
             },
             readConfig() {
@@ -38,7 +38,7 @@ module.exports = class extends BaseGenerator {
                 this.log(`${chalk.bold.cyan('| |_|  | |  |_|  |||  |___ |  |___  | |    | |___| |__| |  | |     | |  | |____| | \\ \\')}`);
                 this.log(`${chalk.bold.cyan('\\____/|_|______// |______||______| |_|    |______\\____/  |_|     |_|  |______|_|  \\_\\')}`);
 
-                this.log(`\nWelcome to JHipster-Flutter ${chalk.bold.yellowBright(`v${packagejs.version}`)} !`);
+                this.log(`\nBienvenido a JHipster-Flutter ${chalk.bold.yellowBright(`v${packagejs.version}`)} !`);
                 /* eslint-enable no-useless-escape */
             },
             checkJhipster() {
@@ -46,7 +46,7 @@ module.exports = class extends BaseGenerator {
                 const minimumJhipsterVersion = packagejs.dependencies['generator-jhipster'];
                 if (!semver.satisfies(currentJhipsterVersion, minimumJhipsterVersion)) {
                     this.warning(
-                        `\nYour generated project used an old JHipster version (${currentJhipsterVersion})... you need at least (${minimumJhipsterVersion})\n`
+                        `\nSu proyecto generado utilizó una versión antigua de JHipster (${currentJhipsterVersion})... necesitas al menos (${minimumJhipsterVersion})\n`
                     );
                 }
             }
@@ -59,21 +59,21 @@ module.exports = class extends BaseGenerator {
             {
                 type: 'input',
                 name: 'baseName',
-                message: 'What is your Flutter application name?',
+                message: '¿Cuál es el nombre de su aplicación Flutter?',
                 store: true
             },
             {
                 type: 'input',
                 name: 'packageName',
-                validate: (input) => (/^([a-z_]{1}[a-z0-9_]*(\.[a-z_]{1}[a-z0-9_]*)*)$/.test(input) ? true : 'The package name you have provided is not a valid Java package name.'),
-                message: 'What is your package name?',
+                validate: (input) => (/^([a-z_]{1}[a-z0-9_]*(\.[a-z_]{1}[a-z0-9_]*)*)$/.test(input) ? true : 'El nombre del paquete que ha proporcionado no es un nombre de paquete Java válido.'),
+                message: '¿Cuál es su nombre de paquete?\n',
                 default: 'com.myapp',
                 store: true
             },
             {
                 type: 'list',
                 name: 'android',
-                message: 'Which Android native code do you want to use?',
+                message: '\n¿Qué código nativo de Android quieres usar?',
                 store: true,
                 choices: [
                     {
@@ -90,7 +90,7 @@ module.exports = class extends BaseGenerator {
             {
                 type: 'list',
                 name: 'ios',
-                message: 'Which iOS native code do you want to use?',
+                message: '¿Qué código nativo de iOS desea utilizar?\n',
                 store: true,
                 choices: [
                     {
@@ -107,7 +107,7 @@ module.exports = class extends BaseGenerator {
             {
                 type: 'list',
                 name: 'stateManageType',
-                message: 'Which State-Management style do you want to use?',
+                message: '¿Qué estilo de gestión de estado desea utilizar?',
                 store: true,
                 choices: [
                     {
@@ -120,7 +120,7 @@ module.exports = class extends BaseGenerator {
             {
                 type: 'confirm',
                 name: 'enableTranslation',
-                message: 'Would you like to enable internationalization support?',
+                message: '¿Le gustaría habilitar el soporte de internacionalización?',
                 default: true,
                 store: true,
             },
@@ -128,7 +128,7 @@ module.exports = class extends BaseGenerator {
                 when: (response) => response.enableTranslation === true,
                 type: 'list',
                 name: 'nativeLanguage',
-                message: 'Please choose the native language of the application',
+                message: 'Elija el idioma nativo de la aplicación',
                 choices: SUPPORTED_LANGUAGES,
                 default: 'en',
                 store: true,
@@ -137,7 +137,7 @@ module.exports = class extends BaseGenerator {
                 when: (response) => response.enableTranslation === true,
                 type: 'checkbox',
                 name: 'languages',
-                message: 'Please choose additional languages to install',
+                message: 'Elija idiomas adicionales para instalar',
                 choices: (response) => _.filter(SUPPORTED_LANGUAGES, (o) => o.value !== response.nativeLanguage),
                 store: true,
             },
@@ -180,12 +180,12 @@ module.exports = class extends BaseGenerator {
 
     install() {
         // Install Android And IOS Dependencies
-        this.log(chalk.green('Adding Android and iOS dependencies...'));
+        this.log(chalk.green('Agregar dependencias de Android e iOS...'));
         this.spawnCommandSync('flutter', ['create', '--org', `${this.packageName}`,
             '--project-name', `${this.snakedBaseName}`, '--ios-language', `${this.iosLanguage}`, '--android-language', `${this.androidLanguage}`, MAIN_DIR]);
 
         // Generate Reflection
-        this.log(chalk.green('Generate reflection for the first time...'));
+        this.log(chalk.green('Genera reflexión por primera vez...'));
         this.spawnCommandSync('flutter', ['pub', 'run', 'build_runner', 'build'], { cwd: MAIN_DIR });
 
         // Generate Translation
@@ -198,11 +198,11 @@ module.exports = class extends BaseGenerator {
     }
 
     end() {
-        this.log(chalk.green.bold('Flutter application generated successfully.\n'));
+        this.log(chalk.green.bold('Aplicación Flutter generada con éxito.\n'));
         const logMsg = `Start your favorite IDE for flutter (Visual Studio code, IntelliJ or Android Studio) or \n do ${chalk.yellow.bold('flutter run')}\n`;
         this.log(chalk.green(logMsg));
         if (this.enableTranslation) {
-            const logMsgI18n = 'Don\'t forget to install flutter-intl for the i18n';
+            const logMsgI18n = 'No olvides instalar flutter-intl para el i18n';
             const logMsgI18nIntelliJPlugins = 'i18n for IntelliJ : (https://plugins.jetbrains.com/plugin/13666-flutter-intl)';
             const logMsgI18nVsCodePlugins = 'i18n for VS code (https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl) \n';
             this.log(chalk.blue(logMsgI18n));
