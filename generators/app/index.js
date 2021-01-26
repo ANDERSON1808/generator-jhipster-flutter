@@ -31,10 +31,10 @@ module.exports = class extends BaseGenerator {
             },
             displayLogo() {
                 /* eslint-disable no-useless-escape */
-                this.log(`${chalk.bold.cyan('    __ _  ______   ____  __ ______ ______ _ __    __   _ _______ _______ ______ _____   ')}`);
-                this.log(`${chalk.bold.cyan('    |  | |    _ \\ |  |    |   ___| |  ____| |   | |  | |__   __|__   __|  ____|  __ \\')}`);
-                this.log(`${chalk.bold.cyan('    |  | |  | |  \\|  |    |  |     |__  | | |   | |  | |  | |     | |  |  | |__) |')}`);
-                this.log(`${chalk.bold.cyan(' _  |  | |  | |  |||  |    |  |     |  __| | |   | |  | |  | |     | |  |  __| |  _  /')}`);
+                this.log(`${chalk.bold.cyan('     __ _  ______   ____  __ ______ ______ _ __    __   _ _______ _______ ______ _____   ')}`);
+                this.log(`${chalk.bold.cyan('     |  | |    _ \\ |  |    |   ___| |  ____| |   | |  | |__   __|__   __|  ____|  __ \\')}`);
+                this.log(`${chalk.bold.cyan('     |  | |  | |  \\|  |    |  |     |__  | | |   | |  | |  | |     | |  |  | |__) |')}`);
+                this.log(`${chalk.bold.cyan('  _  |  | |  | |  |||  |    |  |     |  __| | |   | |  | |  | |     | |  |  __| |  _  /')}`);
                 this.log(`${chalk.bold.cyan('| |_|  | |  |_|  |||  |___ |  |___  | |    | |___| |__| |  | |     | |  | |____| | \\ \\')}`);
                 this.log(`${chalk.bold.cyan('\\____/|_|______// |______||______| |_|    |______\\____/  |_|     |_|  |______|_|  \\_\\')}`);
 

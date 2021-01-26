@@ -2,14 +2,14 @@
 <br/>
 
 ![Generator](https://github.com/merlinofcha0s/generator-jhipster-flutter/workflows/Generator/badge.svg?branch=master&event=push)
-![npm version](https://img.shields.io/npm/v/generator-jhipster-flutter-jdl)
-![npm](https://img.shields.io/npm/dm/generator-jhipster-flutter-jdl?label=npm)
+![npm version](https://img.shields.io/badge/Flutter-passing-green)
+![npm](https://img.shields.io/badge/npm-passing-green)
 
 Generate your Flutter mobile App (Android / iOS) for JHipster
 
 This is a [JHipster](https://www.jhipster.tech/) module.
 
-Get started and (Full not yet) documentation on my blog [here](https://blog.herofactory.dev/get-started-with-flutter-jhipster-generator/)
+Get started and (Full not yet) documentation
 
 # What's inside
 
