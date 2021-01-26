@@ -106,10 +106,10 @@ module.exports = class extends BaseGenerator {
 
                 const rawdata = fs.readFileSync(`${this.context.backendPath}/.yo-rc.json`);
                 const yoRc = JSON.parse(rawdata);
-                this.context.baseName = yoRc['generator-jhipster-flutter-merlin'].promptValues.baseName;
+                this.context.baseName = yoRc['generator-jhipster-flutter-jdlc'].promptValues.baseName;
                 this.context.camelizedBaseName = _.camelCase(this.context.baseName);
-                this.context.packageName = yoRc['generator-jhipster-flutter-merlin'].promptValues.packageName;
-                this.context.enableTranslation = yoRc['generator-jhipster-flutter-merlin'].promptValues.enableTranslation;
+                this.context.packageName = yoRc['generator-jhipster-flutter-dlc'].promptValues.packageName;
+                this.context.enableTranslation = yoRc['generator-jhipster-flutter-dlc'].promptValues.enableTranslation;
 
                 if (this.context.backendPath) {
                     this.log(chalk.green('\nFound the entity folder configuration file, entity can be automatically generated!\n'));
@@ -133,7 +133,7 @@ module.exports = class extends BaseGenerator {
     writing() {
         this.context.entitiesToGenerate.forEach((entity) => {
             this.log(chalk.green(`Generate ${entity}...`));
-            this.spawnCommandSync('yo', ['jhipster-flutter-merlin:entity', entity, this.context.backendPath, '--fromCLI', '--force']);
+            this.spawnCommandSync('yo', ['jhipster-flutter-jdcl:entity', entity, this.context.backendPath, '--fromCLI', '--force']);
         });
     }
 

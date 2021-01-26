@@ -1,5 +1,5 @@
 {
-  "name": "generator-jhipster-flutter-merlin",
+  "name": "generator-jhipster-flutter-jdlc",
   "version": "1.6.0",
   "description": "A Flutter module for JHipster. It will use Flutter as the frontend",
   "keywords": [
@@ -7,10 +7,10 @@
     "jhipster-module",
     "jhipster-6"
   ],
-  "homepage": "https://github.com/merlinofcha0s/generator-jhipster-flutter.git",
+  "homepage": "https://github.com/ANDERSON1808/generator-jhipster-flutter.git",
   "author": {
-    "name": "Cyril Casaucau",
-    "url": "https://github.com/merlinofcha0s"
+    "name": "Anderson Losada",
+    "url": "https://github.com/ANDERSON1808"
   },
   "files": [
     "generators"
@@ -18,7 +18,7 @@
   "main": "generators/app/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/merlinofcha0s/generator-jhipster-flutter.git"
+    "url": "git+https://github.com/ANDERSON1808/generator-jhipster-flutter.git"
   },
   "dependencies": {
     "chalk": "4.1.0",
