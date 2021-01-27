@@ -9,7 +9,8 @@ const INTELLIJ_CONFIG_DIR = `${MAIN_DIR}.idea/runConfigurations/`;
 
 const LANGUAGES = [
     { name: 'French', dispName: 'Français', value: 'fr' },
-    { name: 'English', dispName: 'Anglais', value: 'en' }
+    { name: 'English', dispName: 'Anglais', value: 'en' },
+    { name: 'Spanish', dispName: 'Spanish', value: 'es' }
 ];
 
 const FLUTTER_FILES = {

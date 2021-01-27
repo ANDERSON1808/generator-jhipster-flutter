@@ -113,6 +113,10 @@ module.exports = class extends BaseGenerator {
                     {
                         value: 'bloc',
                         name: 'BLoC'
+                    },
+                    {
+                        value: 'getx',
+                        name: 'GetX-veta'
                     }
                 ],
                 default: 'bloc'

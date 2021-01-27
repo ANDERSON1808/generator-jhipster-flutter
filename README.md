@@ -94,6 +94,17 @@ To use this blueprint, run
 ```bash
 yo jhipster-flutter-jdlc
 ```
+#Usage create entity from JHipster
+To create a single entity
+
+```bash
+yo jhipster-flutter-jdlc:entity Employee
+```
+
+All entities
+```bash
+yo jhipster-flutter-jdlc:entities
+```
 
 # Help and contribution to the project
 
