@@ -13,7 +13,6 @@ const flutterConstants = require('../flutter-generator-constants');
 const CLIENT_FLUTTER_TEMPLATES_DIR = 'flutter';
 
 module.exports = class extends BaseGenerator {
-    promptValues;
     get initializing() {
         return {
             initContext() {
@@ -373,7 +372,7 @@ module.exports = class extends BaseGenerator {
                             (relationship.relationshipType === 'many-to-one'
                                 && otherRelationship.relationshipType === 'one-to-many')
                             || (relationship.relationshipType === 'many-to-many'
-                                && otherRelationship.relationshipType === 'many-to-many')
+                            && otherRelationship.relationshipType === 'many-to-many')
                         ) {
                             relationship.otherEntityRelationshipName = relationship.otherEntityRelationshipName || otherRelationship.relationshipName;
                             relationship.otherEntityRelationshipNamePlural = relationship.otherEntityRelationshipNamePlural || pluralize(otherRelationship.relationshipName);
@@ -619,7 +618,7 @@ module.exports = class extends BaseGenerator {
 
         context.relationships.forEach((relation) => {
             if ((relation.relationshipType === 'many-to-one') || (relation.relationshipType === 'one-to-one' && relation.ownerSide === true)
-            || (relation.relationshipType === 'many-to-many' && relation.ownerSide === true)) {
+                || (relation.relationshipType === 'many-to-many' && relation.ownerSide === true)) {
                 relation.desc = 'relationship';
                 relation.isList = (relation.relationshipType === 'many-to-many');
             }
