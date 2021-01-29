@@ -13,6 +13,7 @@ const flutterConstants = require('../flutter-generator-constants');
 const CLIENT_FLUTTER_TEMPLATES_DIR = 'flutter';
 
 module.exports = class extends BaseGenerator {
+    promptValues;
     get initializing() {
         return {
             initContext() {
